@@ -1,19 +1,12 @@
-import numpy as np
-import pandas as pd
 from init_env import *
-from data.data import *
-from data.dataset import *
-from model.model import *
-from train.train import *
-from utils.utils import *
 from sklearn.preprocessing import StandardScaler
 
 # hyper parameters
 stock_code = 'sz399300'
 day_nums = 10000
 random_seed = 42
-day_after_nums = 7  # target after day_after_nums days to predict
-days_seq_len = 30
+day_after_nums = 1  # target after day_after_nums days to predict
+days_seq_len = 7
 test_data_ratio = 0.3
 
 hidden_dim = 16
@@ -56,6 +49,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 best_model, train_loss, test_loss, train_accuracy_list, test_accuracy_list = train(model, {'train': train_loader,
                                                                                            'val': test_loader},
                                                                                    criterion, num_epochs, optimizer)
+
 line_chart([train_loss, test_loss], ['train_loss', 'test_loss'], '')
 plt.savefig(os.path.join(images_dir, 'loss.png'))
 

@@ -1,22 +1,11 @@
 import copy
-import os
-from typing import Any
-import numpy as np
-from numpy import ndarray
-import torch
-from torch.utils.data import TensorDataset
-import torch.utils.data as data
-import pandas as pd
-import torch.nn as nn
-import torch.optim as optim
 from init.init import *
 from model.model import *
 
 
 def train(model: nn.Module, dataloaders: dict,
           criterion: nn.Module,
-          num_epochs: int, optimizer: optim.Optimizer) -> tuple[
-    nn.Module, list[float], list[float], list[float], list[float]]:
+          num_epochs: int, optimizer: optim.Optimizer) -> tuple[nn.Module, list[float], list[float], list[float], list[float]]:
     # train the model
     train_loss = []
     test_loss = []
@@ -44,7 +33,7 @@ def train(model: nn.Module, dataloaders: dict,
                 optimizer.zero_grad()
 
                 with torch.set_grad_enabled(phase == 'train'):
-                    outputs, state = model(features)
+                    outputs = model(features)
                     preds = (outputs > 0.5).float().to(device)
                     loss = criterion(outputs, labels)
                     if phase == 'train':

@@ -1,4 +1,4 @@
-# 股票价格预测 v0.1.0
+# 股票价格预测 v0.1.1
 
 ---
 
@@ -43,6 +43,7 @@
 ### v0.1.1
 
 - refactor: change the data set label and construct features part, bring the feature scale to the predict phase
+
 
 
 ---

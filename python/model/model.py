@@ -1,13 +1,3 @@
-import os
-from typing import Any
-import numpy as np
-from numpy import ndarray
-import torch
-from torch.utils.data import TensorDataset
-import torch.utils.data as data
-import pandas as pd
-import torch.nn as nn
-import torch.optim as optim
 from init.init import *
 import torch.nn.init as init
 # 初始化LSTM层的函数
@@ -49,10 +39,9 @@ class LSTM(torch.nn.Module):
 
         out, (hn, cn) = self.lstm(x, (h0, c0))
 
-        # out = self.fc(out[:,-1,:])
-        out = self.fc(torch.mean(out, dim=1))
+        out = self.fc(out[:, -1, :])
         out = self.sigmoid(out)
-        return out, state
+        return out
 
     def begin_state(self, batch_size):
         return torch.zeros(self.num_layers, batch_size, self.hidden_dim)

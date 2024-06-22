@@ -1,4 +1,3 @@
-import os
 from typing import Any
 import numpy as np
 from numpy import ndarray
@@ -6,10 +5,7 @@ import torch
 from torch.utils.data import TensorDataset
 import torch.utils.data as data
 import pandas as pd
-import torch.nn as nn
-import torch.optim as optim
 from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
 
 
 def get_data_label(raw_data, days_seq_len: int, day_after_nums: int) -> pd.DataFrame:
