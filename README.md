@@ -2,6 +2,7 @@
 
 ---
 
+
 ## 支持模型
 
 - []() LSTM
@@ -35,3 +36,13 @@
 ## 相关工作引用
 
 - [会有的]()
+
+## 更新信息
+
+---
+### v0.1.1
+
+- refactor: change the data set label and construct features part, bring the feature scale to the predict phase
+
+
+---

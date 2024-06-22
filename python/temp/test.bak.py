@@ -179,7 +179,7 @@ def data_split_and_preprocessing(features: ndarray, label: ndarray) -> tuple[Any
     test_features = test_data.dataset.tensors[0]
 
     sequence_len = days_seq_len
-    feature_dim = train_data.dataset.shape[1]
+    feature_dim = train_features.shape[2]
 
     train_features = scaler.fit_transform(train_features.reshape(-1, feature_dim)).reshape(-1, sequence_len,
                                                                                            feature_dim)
