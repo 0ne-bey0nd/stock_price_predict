@@ -44,6 +44,12 @@
 
 - refactor: change the data set label and construct features part, bring the feature scale to the predict phase
 
+### problems
 
+- the model only takes the market price info(open, high, low, close and volume) as input, and at v0.1.1 when every bug in code seems to be fixed, the accuracy is terribly low( nearly 49.58% and lower) in the task that takes 7 days features to predict the close price of the next unknown day. From the view of data mining, all these may illustrate that it's bullshit to stare only at the price line if you want to have a good performance at your investment.
+
+### v0.1.2
+
+- 
 
 ---
